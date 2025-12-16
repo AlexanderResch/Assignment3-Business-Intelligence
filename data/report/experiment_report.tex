@@ -13,6 +13,20 @@
 \title{BI2025 Experiment Report - Group 54}
 %% ---Authors: Dynamically added ---
 
+          \author{Alexander Resch}
+          \authornote{Student A, Matr.Nr.: 12017130}
+          \affiliation{
+            \institution{TU Wien}
+            \country{Austria}
+          }
+          
+          \author{Jakob Kimeswenger}
+          \authornote{Student B, Matr.Nr.: 12122531}
+          \affiliation{
+            \institution{TU Wien}
+            \country{Austria}
+          }
+          
 
 \begin{abstract}
   This report documents the machine learning experiment for Group 54, following the CRISP-DM process model.
@@ -27,14 +41,20 @@
 \section{Business Understanding}
 
 \subsection{Data Source and Scenario}
-
+We decided to use the "Corporate Credit Rating with Financial Ratios" dataset available on Kaggle.
+The dataset contains a set of financial ratios measuring liquidity, leverage and profitability for multiple companies, together with a corporate credit rating label.
+The scenario is a financial institution that wants to assess corporate credit risk based on financial statement information.
+The model should assist analysts in assigning credit ratings in decision on creditworthiness.
 
 \subsection{Business Objectives}
-
+-) Support analysts with consistent credit rating decisions for coporate clients.
+-) Identify companies with high credit risk early, to reduce credit losses.
+-) Decrease the effort for manual review for low risk companies.
+-) At new credit applications, speed up the rating decisions.
 
 %% --- 2. Data Understanding ---
 \section{Data Understanding}
-\textbf{Dataset Description:} 
+\textbf{Dataset Description:} Credit ratings and financial ratios for corporations.
 
 The following features were identified in the dataset:
 
@@ -45,7 +65,11 @@ The following features were identified in the dataset:
     \toprule
     \textbf{Feature Name} & \textbf{Data Type} & \textbf{Description} \\
     \midrule
-    
+    binary\_rating & integer> & Good vs bad rating indicator \\
+    current\_ratio & double> & Current assets divided by current liabilities \\
+    debt\_equity\_ratio & double> & Leverage ratio total debt relative to equity \\
+    rating & string> & Long term credit rating symbol (for example AAA, BBB-) \\
+    rating\_date & dateTime> & Date at which the credit rating was assigned \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -69,7 +93,7 @@ The model was trained using the following hyperparameter settings:
     \toprule
     \textbf{Parameter} & \textbf{Description} & \textbf{Value} \\
     \midrule
-    
+    Learning Rate & ... & 1.23 \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -77,10 +101,10 @@ The model was trained using the following hyperparameter settings:
 \subsection{Training Run}
 A training run was executed with the following characteristics:
 \begin{itemize}
-    \item \textbf{Algorithm:} 
-    \item \textbf{Start Time:} 
-    \item \textbf{End Time:} 
-    \item \textbf{Result:}  = 
+    \item \textbf{Algorithm:} Random Forest Algorithm
+    \item \textbf{Start Time:} 2025-12-16 17:24:54
+    \item \textbf{End Time:} 2025-12-16 17:24:54
+    \item \textbf{Result:} R-squared Score = 1.2300
 \end{itemize}
 
 %% --- 5. Evaluation ---
